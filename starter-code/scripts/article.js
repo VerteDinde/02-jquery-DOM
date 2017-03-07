@@ -20,13 +20,13 @@ Article.prototype.toHtml = function() {
   $newArticle.attr('data-category', this.category);
   // WIP: We also need to fill in:
   // 1. author name
-  $newArticle.children('.byline address').text(this.author);
+  $newArticle.find('.byline address a').text(this.author);
   // 2. author url
-  // $newArticle.attr('.byline a', this.authorUrl);
+  $newArticle.find('.byline address a').attr("href",this.authorUrl);
   // // 3. article title
   $newArticle.find('h1').text(this.title);
   // // 4. article body
-  // $newArticle.attr('.article-body', this.body);
+  $newArticle.find('.article-body').text(this.body);
   // // 5. publication
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
   $newArticle.find('time').text('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
