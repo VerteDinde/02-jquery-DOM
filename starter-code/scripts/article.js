@@ -26,7 +26,7 @@ Article.prototype.toHtml = function() {
   // // 3. article title
   $newArticle.find('h1').text(this.title);
   // // 4. article body
-  $newArticle.find('.article-body').text(this.body);
+  $newArticle.find('.article-body').html(this.body);
   // // 5. publication
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
   $newArticle.find('time').text('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
